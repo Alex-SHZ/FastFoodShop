@@ -11,10 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastFood.Services.ProductAPI", "FastFood.Services.ProductAPI\FastFood.Services.ProductAPI.csproj", "{5592013C-3396-45F6-A155-B600486AA727}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{98C108AF-A58E-4B9B-9589-2C69524A3E84}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ser", "Ser", "{98C108AF-A58E-4B9B-9589-2C69524A3E84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
