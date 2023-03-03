@@ -9,13 +9,12 @@
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Services\IServices\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\.editorconfig" />
+    <None Remove="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Services\IServices\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />

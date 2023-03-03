@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FastFood.Web.Models.ProductDTO>
+
+<br/><br/>
+<div class="container p-4 border">
+    <div class="row pb-2">
+        <div class="col">
+            <h1 class="text-primary">Список продуктов</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a asp-action="ProductCreate" class="btn btn-outline-primary"><i class="fas fa-plus"></i>Создать новый продукт</a>
+        </div>
+    </div>
+    <table class="table">
+        <thread>
+            <tr>
+                <th>
+                    Название
+                </th>
+                <th>
+                    Категория
+                </th>
+                <th>
+                    Цена
+                </th>
+                <th></th>
+            </tr>
+        </thread>
+        <tbody>
+             @foreach (var item in Model)
+             {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.CategoryName
+                    </td>
+                    <td>
+                        @((item.Price).ToString("c"))
+                    </td>
+                    <td>
+                        <a asp-action="ProductEdit" class="btn btn-success" asp-route-productId="@item.ProductId">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-action="ProductDelete" class="btn btn-danger" asp-route-productId="@item.ProductId">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+             }
+        </tbody>
+    </table>
+</div>

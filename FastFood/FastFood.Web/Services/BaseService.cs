@@ -9,7 +9,6 @@ namespace FastFood.Web.Services;
 public class BaseService : IBaseService
 {
     public ResponseDTO responseModel { get; set;}
-
     public IHttpClientFactory httpClient { get; set; }
 
     public BaseService(IHttpClientFactory httpClient)

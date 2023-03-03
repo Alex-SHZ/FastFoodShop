@@ -24,11 +24,12 @@ namespace FastFood.Services.ProductAPI.Repository;
         Product product = _mapper.Map<ProductDTO, Product>(productDTO);
         if (product.ProductId > 0)
             _db.Products.Update(product);
-        _db.Add(product);
+        else
+            _db.Add(product);
 
         await _db.SaveChangesAsync();
 
-            return _mapper.Map<Product, ProductDTO>(product);
+        return _mapper.Map<Product, ProductDTO>(product);
     }
 
     public async Task<bool> DeleteProduct(int productId)
