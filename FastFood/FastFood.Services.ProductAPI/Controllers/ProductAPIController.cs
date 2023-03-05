@@ -1,5 +1,6 @@
 ﻿using FastFood.Services.ProductAPI.Models.DTO;
 using FastFood.Services.ProductAPI.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastFood.Services.ProductAPI.Controllers;
@@ -8,14 +9,14 @@ namespace FastFood.Services.ProductAPI.Controllers;
 public class ProductAPIController : ControllerBase
 {
     protected ResponseDTO _response;
-    private IProductRepository _productRepository; 
+    private IProductRepository _productRepository;
 
     public ProductAPIController(IProductRepository iProductReposytory)
     {
         _productRepository = iProductReposytory;
         this._response = new ResponseDTO();
     }
-
+    [Authorize]
     [HttpGet]
     public async Task<object> Get()
     {
@@ -33,7 +34,7 @@ public class ProductAPIController : ControllerBase
 
         return _response;
     }
-
+    [Authorize]
     [HttpGet]
     [Route("{id}")]
     public async Task<object> Get(int id)
@@ -52,7 +53,7 @@ public class ProductAPIController : ControllerBase
 
         return _response;
     }
-
+    [Authorize]
     [HttpPost]
     public async Task<object> Post([FromBody] ProductDTO productDTO)
     {
@@ -71,6 +72,7 @@ public class ProductAPIController : ControllerBase
         return _response;
     }
 
+    [Authorize]
     [HttpPut]
     public async Task<object> Put([FromBody] ProductDTO productDTO)
     {
@@ -88,6 +90,7 @@ public class ProductAPIController : ControllerBase
         return _response;
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpDelete]
     [Route("{id}")]
     public async Task<object> Delete(int id)

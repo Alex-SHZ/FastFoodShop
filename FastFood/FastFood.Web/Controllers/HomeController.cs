@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using FastFood.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FastFood.Web.Controllers;
 
@@ -27,6 +28,18 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+
+    [Authorize]
+    public IActionResult Login()
+    {
+        return RedirectToAction(nameof(Index));
+    }
+
+    public IActionResult Logout()
+    {
+        return SignOut("Cookies", "oidc");
     }
 }
 
